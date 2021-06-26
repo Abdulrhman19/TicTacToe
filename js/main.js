@@ -5,6 +5,10 @@ let game = new Game();
 let gameView = new GameView();
 let tiles = document.querySelectorAll(".board-tile");
 
+document.querySelector(".restart").addEventListener("click", () => {
+    onRestartClick();
+})
+
 tiles.forEach((tile) => {
   tile.addEventListener("click", () => {
     onTileClick(tile.dataset.index);
@@ -17,3 +21,7 @@ function onTileClick(i) {
     gameView.updateBoard(game);
 }
 
+function onRestartClick(){
+    game = new Game();
+    gameView.updateBoard(game);
+}
