@@ -16,10 +16,10 @@ document.querySelector(".restart").addEventListener("click", () => {
 
 toggleBtn.addEventListener("click", () => {
   console.log("clicked");
-  toggleBtn.classList.contains("toggled") 
+  let currentMode = toggleBtn.classList.contains("toggled") 
     ? enableLightMode()
     : enableDarkMode();
-
+  console.log(currentMode);
 })
 
 
@@ -35,6 +35,10 @@ const enableDarkMode = () => {
   document.body.style.backgroundColor = "#121212";
   title.classList.add("light-title-color");
   restart.classList.add("light-restart-button")
+  document.querySelector(".winning-img").style.backgroundColor = "#fff";
+  document.querySelector(".winning-img").style.backgroundColor = "#fff";
+  document.querySelector(".winnier-type").style.backgroundColor = "#fff";
+
 }
 
 
@@ -52,5 +56,14 @@ function onTileClick(i) {
 
 function onRestartClick(){
     game = new Game();
+    reset();
     gameView.updateBoard(game);
+}
+
+function reset() {
+  document.querySelector(".right").classList.remove("hidden");
+  document.querySelector(".winning-img").classList.add("hidden");
+  document.querySelector("#winnerType").classList.add("hidden");
+  // document.querySelector(".winnerType").classList
+  // winnerType.innerHTML = `Congratulations Player-${game.turn}`;
 }

@@ -19,7 +19,14 @@ export default class GameView {
             tile.innerHTML = `<span class="${tileType}">${game.board[i] ? game.board[i] : ""}</span>`
         
             if(winningCommination && winningCommination.includes(i)) {
-                tile.classList.add("tile-winner");
+                // tile.classList.add("tile-winner");
+                const right = document.querySelector(".right");
+                const winningImg = document.querySelector(".winning-img");
+                const winnerType = document.querySelector(".winner-type");
+                right.classList.add("hidden");
+                winningImg.classList.remove("hidden");
+                winnerType.innerHTML = `Congratulations Player-${game.turn === "X" ? "O" : "X"}`;
+                document.querySelector("#winnerType").classList.remove("hidden");
             }
         
         }
